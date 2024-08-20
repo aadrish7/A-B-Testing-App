@@ -8,6 +8,7 @@ interface LogoSectionProps {
 }
 
 const LogoSection: React.FC<LogoSectionProps> = ({ version }) => {
+  console.log("Version is ", version)
   return (
     <>
       <div>
