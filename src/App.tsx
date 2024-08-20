@@ -5,7 +5,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LogoSection />} />
+        <Route path="/" element={<LogoSection version={"B"} />} />
       </Routes>
     </Router>
   );
