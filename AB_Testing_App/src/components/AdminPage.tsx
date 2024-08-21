@@ -8,7 +8,6 @@ const AdminPage: React.FC = () => {
   const [selectedVersion, setSelectedVersion] = useState<ABTestVersion>(null);
 
   useEffect(() => {
-    // Fetch the current admin version from the server when the component mounts
     const fetchAdminVersion = async () => {
       try {
         const response = await fetch('http://localhost:3001/api/admin/getAdminVersion');
@@ -44,7 +43,7 @@ const AdminPage: React.FC = () => {
 
       const data = await response.json();
       console.log('Admin version set successfully:', data);
-      setSelectedVersion(version); // Update the state to the newly set version
+      setSelectedVersion(version); 
     } catch (error) {
       console.error('Error setting admin version:', error);
     }
