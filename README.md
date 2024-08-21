@@ -10,6 +10,18 @@ This project is an AB Testing Application that allows administrators to select a
 - **User Assignment**: Users are randomly assigned a version (A or B) if the admin has not pre-selected a version.
 - **Analytics**: View the number of users assigned to each version and the number of users who have clicked a button for the first time.
 
+### URL Routes Frontend
+
+- **Landing Page (/)**: Displays one of two promotional messages based on the version fetched from the API:
+  - Version A: `<h1>Get 50% Off Your Next Purchase!</h1>`
+  - Version B: `<h1>Exclusive Offer: Buy One Get One Free!</h1>`
+  
+  This page retrieves the version information from an API and updates the displayed message accordingly.
+
+- **Admin Page (/admin)**: Allows administrators to:
+  - **Manually Set the Version**: Choose which version (A or B) users should see on the landing page. Buttons are provided to set version A, version B, or to unset the version (null).
+  - **View Analytics**: Check how many users have clicked the button for each version. This helps in assessing the performance and effectiveness of the promotional messages.
+
 ## Project Structure
 
 ```plaintext
