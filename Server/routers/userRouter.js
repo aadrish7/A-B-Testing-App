@@ -39,10 +39,11 @@ router.get('/getversion', async (req, res) => {
         });
         await user.save();
       } else {
+        if (user.version !== adminVersionSelected) {
         user.version = adminVersionSelected;
         user.createdAt = new Date();
         user.firstClick = null;
-        await user.save();
+        await user.save();}
       }
       return res.json({ version: adminVersionSelected });
     }
@@ -54,20 +55,23 @@ router.get('/getversion', async (req, res) => {
 
 router.patch('/updateFirstClick', async (req, res) => {
   const { userId } = req.body;
+  console.log(userId);
   try {
     if (!userId) {
       return res.status(400).json({ error: 'userId is required' });
     }
     const user = await User.findOne({ userId: userId });
+    console.log("user", user);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    if (user.firstClick !== null) {
+    if (user.firstClick == null) {
       user.firstClick = new Date();
       await user.save();
       return res.json({ message: 'firstClick updated successfully' });
     } else {
-      return res.status(400).json({ message: 'firstClick is already null' });
+      console.log('firstClick is already selected');
+      return res.status(400).json({ message: 'firstClick is already selected' });
     }
   } catch (error) {
     console.error('Error updating firstClick:', error);

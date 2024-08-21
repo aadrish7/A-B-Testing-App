@@ -6,6 +6,29 @@ interface LogoSectionProps {
   version: 'A' | 'B';
 }
 
+
+  
+const updateFirstClick = async () => {
+    try {
+    const response = await fetch('http://localhost:3001/api/user/updateFirstClick', {
+        method: 'PATCH',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId: localStorage.getItem('userId') }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to update first click');
+    }
+
+    const data = await response.json();
+    console.log('First click updated successfully:', data.message);
+    } catch (error) {
+    console.error('Error updating first click:', error);
+    }
+};
+
 const LogoSection: React.FC<LogoSectionProps> = ({ version }) => {
   console.log("Version is ", version)
   return (
@@ -25,7 +48,7 @@ const LogoSection: React.FC<LogoSectionProps> = ({ version }) => {
         <h1>Exclusive Offer: Buy One Get One Free!</h1>
       )}
 
-      <div className="card">
+      <div className="card" onClick={updateFirstClick}>
         <button>Click Here</button>
       </div>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./CSS_AdminPage.css"
+import AdminAnalytics from './AdminAnalytics';
 
 type ABTestVersion = 'A' | 'B' | null;
 
@@ -50,6 +51,7 @@ const AdminPage: React.FC = () => {
   };
 
   return (
+    <>
     <div className="admin-container">
       <h1>Admin Page</h1>
       <button
@@ -71,6 +73,8 @@ const AdminPage: React.FC = () => {
         {selectedVersion === null ? 'Version Null Selected' : 'Set Version Null'}
       </button>
     </div>
+    <AdminAnalytics />
+    </>
   );
 };
 

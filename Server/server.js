@@ -5,6 +5,7 @@ const User = require('./models/userModel');
 const AdminVersion = require('./models/adminModel');
 const adminRoutes = require('./routers/adminRouter');
 const userRoutes = require('./routers/userRouter');
+const analyticsRoutes = require('./routers/analyticsRouter');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -30,3 +31,4 @@ mongoose
 
   app.use('/api/admin', adminRoutes);
   app.use('/api/user', userRoutes);
+  app.use('/api/analytics', analyticsRoutes);
