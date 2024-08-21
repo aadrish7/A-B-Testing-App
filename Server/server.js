@@ -7,7 +7,7 @@ const adminRoutes = require('./routers/adminRouter');
 const userRoutes = require('./routers/userRouter');
 const analyticsRoutes = require('./routers/analyticsRouter');
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
