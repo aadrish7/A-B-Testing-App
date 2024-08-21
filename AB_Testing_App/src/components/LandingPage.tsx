@@ -1,7 +1,7 @@
 import React from 'react';
 import reactLogo from '/react.svg';
 import viteLogo from '/vite.svg';
-import './CSS_LandingPage.css';
+import '../styles/CSS_LandingPage.css';
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 

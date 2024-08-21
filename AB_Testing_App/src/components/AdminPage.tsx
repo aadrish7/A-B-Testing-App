@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import "./CSS_AdminPage.css"
+import "../styles/CSS_AdminPage.css";
 import AdminAnalytics from './AdminAnalytics';
+import VersionButton from './VersionButton';
 
 type ABTestVersion = 'A' | 'B' | null;
 
@@ -51,28 +52,25 @@ const AdminPage: React.FC = () => {
 
   return (
     <>
-    <div className="admin-container">
-      <h1>Admin Page</h1>
-      <button
-        onClick={() => setAdminVersion('A')}
-        disabled={selectedVersion === 'A'}
-      >
-        {selectedVersion === 'A' ? 'Version A Selected' : 'Set Version A'}
-      </button>
-      <button
-        onClick={() => setAdminVersion('B')}
-        disabled={selectedVersion === 'B'}
-      >
-        {selectedVersion === 'B' ? 'Version B Selected' : 'Set Version B'}
-      </button>
-      <button
-        onClick={() => setAdminVersion(null)}
-        disabled={selectedVersion === null}
-      >
-        {selectedVersion === null ? 'Version Null Selected' : 'Set Version Null'}
-      </button>
-    </div>
-    <AdminAnalytics />
+      <div className="admin-container">
+        <h1>Admin Page</h1>
+        <VersionButton
+          version='A'
+          selectedVersion={selectedVersion}
+          onClick={setAdminVersion}
+        />
+        <VersionButton
+          version='B'
+          selectedVersion={selectedVersion}
+          onClick={setAdminVersion}
+        />
+        <VersionButton
+          version={null}
+          selectedVersion={selectedVersion}
+          onClick={setAdminVersion}
+        />
+      </div>
+      <AdminAnalytics />
     </>
   );
 };
